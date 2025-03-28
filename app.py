@@ -83,36 +83,3 @@ if user_input:
         assistant_response = response["answer"]
         st.markdown(assistant_response)
         st.session_state.chat_history.append({"role":"assistant","content" : assistant_response})
-    
-
-# from langchain.chains import ConversationalRetrievalChain
-# from langchain.memory import ConversationBufferMemory
-# from langchain.prompts import PromptTemplate
-
-# # Define a dynamic prompt template
-# dynamic_prompt = PromptTemplate(
-#     input_variables=["context", "question"],
-#     template="""
-#     You are an AI assistant. Use the following context to answer the user's question.
-#     Context: {context}
-#     Question: {question}
-#     Provide a detailed and accurate response.
-#     """
-# )
-
-# # Initialize memory
-# memory = ConversationBufferMemory(
-#     memory_key="chat_history",
-#     return_messages=True
-# )
-
-# # Create the Conversational Retrieval Chain with a dynamic prompt
-# chain = ConversationalRetrievalChain.from_llm(
-#     llm=llm,
-#     retriever=retriever,
-#     chain_type="stuff",
-#     memory=memory,
-#     verbose=True,
-#     return_source_documents=True,
-#     combine_docs_chain_kwargs={"prompt": dynamic_prompt}
-# )
